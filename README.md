@@ -1,2 +1,2 @@
-# amani
+# Amani
 Projet Amani
