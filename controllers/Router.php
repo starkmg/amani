@@ -88,14 +88,14 @@ class Router{
                     throw new Exception("Page Introuvable");
                 }
             }else{
-                if(!$session["isConnected"]) {
-                    $dan->applyLogin();
-                }else {
+//                if(!$session["isConnected"]) {
+//                    $dan->applyLogin();
+//                }else {
                     require_once("controllers/ControllerHome.php");
                     if (isset($_SERVER["PATH_INFO"]))
                         $url = explode("/", filter_var($_SERVER["PATH_INFO"], FILTER_SANITIZE_URL));
                     $this->_ctrl = new ControllerHome($url);
-                }
+//                }
             }
         }catch (Exception $e){
             $path = "";
