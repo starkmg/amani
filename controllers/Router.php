@@ -71,9 +71,9 @@ class Router{
                         require_once($controllerFileCommons);
                         $this->_ctrl=new $controllerClass($url);
                     }else{
-                        if(!$session["isConnected"]) {
-                            $dan->applyLogin();
-                        }else {
+//                        if(!$session["isConnected"]) {
+//                            $dan->applyLogin();
+//                        }else {
                             if(!$_GET["url"]){
                                 require_once("controllers/ControllerHome.php");
                                 $this->_ctrl= new ControllerHome($url);
@@ -82,7 +82,7 @@ class Router{
                                 $this->_ctrl= new ControllerError404($url);
                                 #throw new Exception("Page Introuvable");
                             }
-                        }
+//                        }
                     }
                 }else{
                     throw new Exception("Page Introuvable");
