@@ -12,7 +12,7 @@ class ControllerLogin{
 //            $_SESSION["alert"]=$alert;
 //            header("location:home");
 //        }else{
-//            $this->display();
+            $this->display();
 //        }
     }
     public function display(){
