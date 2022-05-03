@@ -38,8 +38,8 @@ class ModelConfigurations{
             self::$_db=NEW PDO("mysql:host=$host;dbname=$dbname;port=$port;charset=utf8","$user","$password");
             self::$_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+//            print "Erreur !: " . $e->getMessage() . "<br/>";
+//            die();
         }
 
     }
