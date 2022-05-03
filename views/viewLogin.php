@@ -5,38 +5,68 @@ ob_start();
 ?>
 <!-- Start Login -->
 
-
-<div class="card overflow-hidden account-card mx-3">
-    <div class="bg-dark p-4 text-white text-center position-relative">
-        <h4 class="font-20 m-b-5">Welcome Back !</h4>
-        <p class="text-white-50 mb-4">Sign in to continue to <span class="text-light">RLMS</span> <span class="text-warning">2.0</span>.</p>
-        <a class="logo logo-admin"><img src="public/images/logo.png" height="47" alt="logo"></a>
-    </div>
-    <div class="account-card-content">
-        <form class="form-horizontal m-t-30" method="post" autocomplete="off">
-            <?=$alertMessage?>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input name="cuid" type="text" class="form-control" id="username" placeholder="Enter username">
-            </div>
-            <div class="form-group">
-                <label for="userpassword">Password</label>
-                <input name="password" type="password" class="form-control" id="userpassword" placeholder="Enter password">
-            </div>
-            <div class="form-group row m-t-20">
-                <div class="col-sm-6">
+<div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+    <div class="row flex-grow">
+        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+            <div class="auth-form-transparent text-left p-3">
+                <div class="brand-logo">
+                    <img src="public/images/logo.svg" alt="logo">
                 </div>
-                <div class="col-sm-6 text-right">
-                    <button name="loginMe" class="btn btn-warning w-md waves-effect waves-light" type="submit">Login</button>
-                </div>
+                <h4>Welcome back!</h4>
+                <h6 class="font-weight-light">Happy to see you again!</h6>
+                <form class="pt-3">
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="ti-user text-primary"></i>
+                      </span>
+                            </div>
+                            <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="ti-lock text-primary"></i>
+                      </span>
+                            </div>
+                            <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="my-2 d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <label class="form-check-label text-muted">
+                                <input type="checkbox" class="form-check-input">
+                                Keep me signed in
+                            </label>
+                        </div>
+                        <a href="#" class="auth-link text-black">Forgot password?</a>
+                    </div>
+                    <div class="my-3">
+                        <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="home">LOGIN</a>
+                    </div>
+                    <div class="mb-2 d-flex">
+                        <button type="button" class="btn btn-facebook auth-form-btn flex-grow me-1">
+                            <i class="ti-facebook me-2"></i>Facebook
+                        </button>
+                        <button type="button" class="btn btn-google auth-form-btn flex-grow ms-1">
+                            <i class="ti-google me-2"></i>Google
+                        </button>
+                    </div>
+                    <div class="text-center mt-4 font-weight-light">
+                        Don't have an account? <a href="register" class="text-primary">Create</a>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+        <div class="col-lg-6 login-half-bg d-flex flex-row">
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+        </div>
     </div>
-</div>
-
-<div class="m-t-40 text-center">
-    <p>Don't have an account ? <span class="font-500 text-warning"> Just Sign In and conctact the Admin </span> </p>
-    <p>©2021 <span class="font-500 text-warning">RLMS 2.0</span> <span class="d-none d-sm-inline-block"> - Crafted with </span><i class="mdi mdi-heart text-danger"></i> <span class="font-500 text-warning">by DSF</span></p>
 </div>
 
 <!-- end wrapper-page -->
@@ -44,45 +74,13 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-//    require("layouts/header.php");
-//    require("layouts/footer.php");
+require("layouts/header.php");
+require("layouts/footer.php");
 require("layouts/footerScript.php");
 require("layouts/headerStyle.php");
-require("views/template-old2.php");
+require("views/template.php");
 ?>
 <script>
 
-    $(document).ready(function() {
-        //Buttons examples
-        var table = $('#datatable-buttons').DataTable({
-            lengthChange: false,
-            select: true,
-            dom: 'Bfrtip',
-            buttons: ['copy', 'excel', 'pdf', 'colvis'],
-            "ajax": {
-                "type"   : "POST",
-                "url"    : 'dataTableLoader',
-                "data"   : {
-                    "methode" : "getLodHistoryDT",
-                    "status" : "<?=$status?>",
-                    "debut" : "<?=$debut?>",
-                    "fin" : "<?=$fin?>"
-                }
-            },
-            "columnDefs": [
-                {
-                    "targets": [ 9 ],
-                    "visible": false
-                }
-            ]
-            // "ajax": "public/ajax/data/chargement.txt"
-        });
-        setInterval( function () {
-            table.ajax.reload();
-        }, 30000 );
-        table.buttons().container()
-            .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
-
-    } );
 
 </script>
