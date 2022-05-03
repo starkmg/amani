@@ -185,14 +185,14 @@ class ModelConfigurations{
         return $retour;
     }
     protected function getQuery($query){
-        self::getBdd();
+//        self::getBdd();
         $var = [];
-        $req = self::$_db->prepare($query);
-        @$req->execute();
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)){
-            $var[]=$data;
-        }
-        $req->closeCursor();
+//        $req = self::$_db->prepare($query);
+//        @$req->execute();
+//        while ($data = $req->fetch(PDO::FETCH_ASSOC)){
+//            $var[]=$data;
+//        }
+//        $req->closeCursor();
         return $var;
     }
     protected function setQuery($query){
