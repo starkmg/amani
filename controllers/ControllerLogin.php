@@ -20,4 +20,3 @@ class ControllerLogin{
         require_once("views/viewLogin.php");
     }
 }
-?>
